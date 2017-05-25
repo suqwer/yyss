@@ -1,0 +1,263 @@
+<include file="Public:head" />
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+                        <li ><a href="/index.php/home/user/mymsg"><i class="fa fa-home fa-fw"></i>&nbsp;首页</a></li>
+                        <li ><a href="/index.php/home/user/myscore"><i class="fa fa-id-badge fa-fw"></i>&nbsp;会员积分</a></li>
+                        <li><a href="/index.php/home/user/myimg"><i class="fa fa-superpowers fa-fw"></i>&nbsp;我的头像</a></li>
+                        <li  class="active"><a href="/index.php/home/user/mymsginfo"><i class="fa fa-user-o fa-fw"></i>&nbsp;我的信息</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">我的信息&nbsp;<i class="fa fa-user-o fa-fw"></i></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <div class="form-group is-empty">
+                                        <label for="input" class="col-md-2 control-label text-b ">昵称：</label>
+
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control nickname" id="input" value="{$Think.session.name}" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <br>
+                                    <br>
+                                    <p class="text-z">注：修改一次昵称需要消耗6个积分</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <div class="form-group is-empty">
+                                        <label for="textArea" class="col-md-2 control-label text-b">签名：</label>
+
+                                        <div class="col-md-10">
+                                            <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                            <span class="help-block">在这里写入你的签名</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+
+                            </div>
+                            <div class="row">
+                               <div class="col-md-1">
+                               </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">性别</label>
+                                        <div class="col-md-10">
+                                            <div class="radio radio-primary">
+                                                <label>
+                                                    <input type="radio" name="sex" id="optionsRadios1" checked value="1" class="sex-s"><span class="circle"></span><span class="check"></span>
+                                                    女
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-primary">
+                                                <label>
+                                                    <input type="radio" name="sex" id="optionsRadios2" value="2" class="sex-s"><span class="circle"></span><span class="check"></span>
+                                                    男
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-primary">
+                                                <label>
+                                                    <input type="radio" name="sex" id="optionsRadios3" value="3" class="sex-s"><span class="circle"></span><span class="check"></span>
+                                                    保密
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="textArea" class="col-md-2 control-label text-b">出生日期：</label>
+                                        <div class="col-md-10">
+                                            <input type="date" class="form-control biraday" id="input" value="">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <label for="textArea" class="col-md-2 control-label text-b">所在地：</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control szd" id="input" value="" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="select111" class="col-md-2 control-label text-b">感情状况：</label>
+
+                                        <div class="col-md-10">
+                                            <select id="select111" class="form-control gqzk" >
+                                                <option value="0">--请选择--</option>
+                                                <option value="1">未婚</option>
+                                                <option value="2">已婚</option>
+                                                <option value="3">离异</option>
+                                                <option value="4">丧偶</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="select111" class="col-md-2 control-label text-b">交往目的：</label>
+
+                                        <div class="col-md-10">
+                                            <select id="select" class="form-control jwmd">
+                                                <option value="0" selected="selected">--请选择--</option>
+                                                <option value="1">网友</option>
+                                                <option value="2">恋人</option>
+                                                <option value="3">玩伴</option>
+                                                <option value="4">共同兴趣</option>
+                                                <option value="5">男性朋友</option>
+                                                <option value="6" >女性朋友</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="select111" class="col-md-2 control-label text-b">爱好：</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" id="lis" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <br>
+                                    <br>
+                                    <p class="text-z">注：请通过英文,号进行分割爱好 列如&nbsp;<u>篮球,乒乓</u></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <a href="javascript:void(0)" class="btn btn-raised btn-info mymsg-save">保存</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+<script src="__JS__/jquery-2.2.3.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/material.min.js"></script>
+<script src="__JS__/ripples.min.js"></script>
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+<script>
+    $("#dropdown-menu select").dropdown();
+</script>
+<script>
+    $.material.init();
+</script>
+<script>
+    var ojs=null;
+    $.ajax({
+        url:'/index.php/home/user/mymsgmore',
+        type:'post',
+        success:function (msg) {
+            if(msg!=''){
+                ojs=msg;
+                $('textArea').text(msg[0]['indivi']);
+                for(var i=0;i<$('.sex-s').length;i++){
+                    if($('.sex-s')[i].value==msg[0]['sex']){
+                        $('.sex-s')[i].setAttribute('checked','');
+                    }
+                }
+                $('.biraday').val(msg[0]['birehday']);
+                $('.szd').val(msg[0]['address']);
+                for(var s=0;s<$('.gqzk')[0].children.length;s++){
+                    if($('.gqzk')[0].children[s].value==msg[0]['gqzk']){
+                        $('.gqzk')[0].children[s].setAttribute('selected','selected');
+                    }
+                }
+                for(var j=0;j<$('.jwmd')[0].children.length;j++){
+                    if($('.jwmd')[0].children[j].value==msg[0]['jwxx']){
+                        $('.jwmd')[0].children[j].setAttribute('selected','selected');
+                    }
+                }
+                $('#lis').val(msg[0]['hobby']);
+            }else{
+            }
+        }
+    });
+        $('.mymsg-save').on('click',function (e) {
+            var arr={};
+            arr['name']=$('.nickname').val();
+            arr['indivi']=$('#textArea').val();
+            for(var i=0;i<$('.sex-s').length;i++){
+                if($('.sex-s')[i].checked){
+                    arr['sex']=$('.sex-s')[i].value;
+
+                }
+            }
+            arr['birehday']=$('.biraday').val();
+            arr['address']=$('.szd').val();
+            for(var s=0;s<$('.gqzk')[0].children.length;s++){
+                if($('.gqzk')[0].children[s].selected){
+                    arr['gqzk']=$('.gqzk')[0].children[s].value;
+                }
+            }
+            for(var j=0;j<$('.jwmd')[0].children.length;j++){
+                if($('.jwmd')[0].children[j].selected){
+                    arr['jwxx']=$('.jwmd')[0].children[j].value;
+                }
+            }
+            arr['hobby']=$('#lis').val();
+            console.log(arr);
+            $.ajax({
+                url:'/index.php/home/user/mymsgsave',
+                type:'post',
+                data:arr,
+                success:function () {
+
+                }
+            })
+        });
+
+</script>
+<script>
+</script>
+</html>

@@ -1,0 +1,83 @@
+<include file="Public:head" />
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+                        <li ><a href="/index.php/home/user/mymsg"><i class="fa fa-home fa-fw"></i>&nbsp;首页</a></li>
+                        <li  class="active"><a href="/index.php/home/user/myscore"><i class="fa fa-id-badge fa-fw"></i>&nbsp;会员积分</a></li>
+                        <li><a href="/index.php/home/user/myimg"><i class="fa fa-superpowers fa-fw"></i>&nbsp;我的头像</a></li>
+                        <li><a href="/index.php/home/user/mymsginfo"><i class="fa fa-user-o fa-fw"></i>&nbsp;我的信息</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">会员积分&nbsp;<i class="fa fa-id-badge fa-fw"></i></h3>
+                        </div>
+                        <div class="panel-body">
+                             <a><img src="{$Think.session.img}" width=100 height=100  class="slia"><span>&nbsp;&nbsp;&nbsp;{$Think.session.name}</span></a>
+                             <div class="col-md-12">
+                                <div class="page-header">
+                                  <a href="javascript:void(0)">LV: <span class="badge">0</span></a>
+                                    <h5 id="progress-alternatives">经验值</h5>
+                                    <div class="bs-component">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                               <div class="col-md-3 text-center">
+                                   <h3>如何获得经验？</h3>
+                               </div>
+                           </div>
+                           <div class="row text-center">
+                               <div class="col-md-3">
+                                   <a href="javascript:void(0)" class="btn btn-default btn-fab btn-info"><i class="material-icons">done</i></a>
+                                    <h5>每日登入+5</h5>
+                               </div>
+                               <div class="col-md-3">
+                                   <a href="javascript:void(0)" class="btn btn-default btn-fab btn-info"><i class="material-icons">done</i></a>
+                                   <h5>每日发帖+5</h5>
+                               </div>
+                               <div class="col-md-3">
+                                   <a href="javascript:void(0)" class="btn btn-default btn-fab btn-info"><i class="material-icons">done</i></a>
+                                   <h5>每日签到+5</h5>
+                               </div>
+                               <div class="col-md-3">
+                                   <a href="javascript:void(0)" class="btn btn-default btn-fab btn-info"><i class="material-icons">done</i></a>
+                                   <h5>每日回复+5</h5>
+                               </div>
+
+                           </div>
+                        </div>
+                    </div>
+                 </div>
+            	</div>
+          	</div>
+           </div>
+            </div>
+           </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+<script src="__JS__/jquery-2.2.3.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/material.min.js"></script>
+<script src="__JS__/ripples.min.js"></script>
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+<script>
+    $("#dropdown-menu select").dropdown();
+</script>
+<script>
+    $.material.init();
+</script>
+</html>

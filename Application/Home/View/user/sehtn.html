@@ -1,0 +1,35 @@
+<include file="Public:head" />
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script src="__JS__/jquery-2.2.3.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/material.min.js"></script>
+<script src="__JS__/ripples.min.js"></script>
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+<script src="__JS__/page.js"></script>
+<script>
+    $.ajax({
+        url:'/index.php/home/user/sse',
+        type:'post',
+        success:function (msg) {
+            var options={
+                "id":"page",//显示页码的元素
+                "data":datas,//需要显示的数据
+                "maxshowpageitem":3,//最多显示的页码个数
+                "pagelistcount":2,//每页显示数据个数
+                "callBack":function(result){
+                    //将数据增加到页面中，这里设置数据显示样式
+                }
+            };//只需设置options参数，即可使用插件
+            page.init(datas.length,1,options);//插件初始
+        }
+    })
+</script>
+</html>
