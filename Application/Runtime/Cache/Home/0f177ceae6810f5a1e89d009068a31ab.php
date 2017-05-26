@@ -112,8 +112,8 @@
                                         <label for="textArea" class="col-md-2 control-label text-b">签名：</label>
 
                                         <div class="col-md-10">
-                                            <textarea class="form-control" rows="3" id="textArea"></textarea>
-                                            <span class="help-block">在这里写入你的签名</span>
+                                            <textarea class="form-control" rows="3" id="textArea" placeholder="在这里写入你的签名"></textarea>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
                                             </div>
                                             <div class="radio radio-primary">
                                                 <label>
-                                                    <input type="radio" name="sex" id="optionsRadios2" value="2" class="sex-s"><span class="circle"></span><span class="check"></span>
+                                                 <input type="radio" name="sex" id="optionsRadios2" value="2" class="sex-s"><span class="circle"></span><span class="check"></span>
                                                     男
                                                 </label>
                                             </div>

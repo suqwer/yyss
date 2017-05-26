@@ -14,16 +14,11 @@ class IndexController extends Controller {
         //$this->imgif();
         $user=M(usermore);
         $re=$user->where('uid=%d',session('id'))->select();
-
         if(count($re)===1){
            session('istur',$re[0]['id']);
         }else{
 
         }
-        //获取版块和帖子
-        $module=D('module');
-        $re=$module->relation(true)->where('type=0')->select();
-        $this->assign('module',$re);
         $this->display();
     }
 }

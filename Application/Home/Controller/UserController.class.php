@@ -12,12 +12,22 @@ namespace Home\Controller;
 use Think\Controller;
 
 class UserController extends Controller
-{
-    public function reg(){
+{   
+    public function __construct() {
+        parent::__construct();
+        if ($Think.ACTION_NAME !== 'login'&& $Think.ACTION_NAME !== 'reg') {
+            $id = session('id');//取得当前用户id
+            if (!$id) die('请先登陆。'); //如果没有id就不登录,有就登录
+        }
 
+        //dump($Think.ACTION_NAME);
+    }
+
+    public function reg(){
     	$_POST['score']=0;
     	$user = D("user");
         if(!$user->create()){
+
             //echo $user->getError().'<br>';
             //$this->redirect('index/index', '', 2, '注册失败,跳转中...');
         }else{
@@ -31,17 +41,15 @@ class UserController extends Controller
         }
     }
     public function login(){
-    $user = D('User');
-        $_POST['password'] = md5(I('post.password'));
-        $rs = $user->where(I('post.'))->select();
+        $user = D('User');
+        $data['email'] = I('post.email');
+        $data['password'] = md5(I('post.password'));
+        $rs = $user->where($data)->select();
         if(count($rs) ===1){
-            $userm = D('Usermore');
-            $re=$userm->where('uid=%d',$rs[0]['id'])->select();
             session('id',$rs[0]['id']); 
             session('name',$rs[0]['name']);
-            session('create_time',substr($rs[0]['created_at'],0,10));
-            session('briad',$re[0]['birehday']);
-            session('address',$re[0]['address']);
+            $userm = D('Usermore');
+            $re=$userm->where('uid=%d',$rs[0]['id'])->select();
             if(count($re)===1){
                 session('img',$re[0]['img']);
             }else{
@@ -55,9 +63,7 @@ class UserController extends Controller
         } 
 
     }
-    public function myscore(){
-        $this->display();
-    }
+
     public function grkj(){
          $user = M("usermore");
          $sql=$user->where('uid=%d',session('id'))->select();
@@ -161,7 +167,7 @@ class UserController extends Controller
         $upload->rootPath  =      './Public/Uploads/'; // 设置附件上传目录
          $info   =   $upload->uploadOne($_FILES['photo']);  // 获取文件资源
         if(!$info) {
-                 // 上传错误提示错误信息
+                   // 上传错误提示错误信息
             $this->error($upload->getError());    
             }else{
                  // 上传成功.
@@ -170,7 +176,7 @@ class UserController extends Controller
             $re=$usermor->where('uid=%d',session('id'))->select();
             if($re[0]['img']!='/public/static/img/jt.png'){
                 unlink('./public/Uploads/'.$re[0]['img']);
-                $data['img']='/public/Uploads/'.$info['savepath'].$info['savename'];
+                $data['img']=$info['savepath'].$info['savename'];
                 $usermor->where('uid=%d',session('id'))->save($data);
                 $this->success('上传成功');
             }else{
@@ -181,21 +187,58 @@ class UserController extends Controller
 
          }
     }
-    public function myletter(){
-        $this->display();
-    }
-    public function myprivateletter(){
 
-        $this->display();
-    }
-    public function sse(){
-        $user=M('user_role');
-        $re=$user->select();
-        $this->ajaxReturn($re);
-    }
-    public function sehtn()
-    {
-        $this->display();
-    }
+ public function myscore(){
+       $this->display();
 
-}               //nickname = $User->where('id=3')->getField('nickname');
+ }
+
+public function myletter(){
+   $this->display();
+}
+
+ public function myprivateLetter(){
+    $provatemess=M('provatemess');
+    $data=$provatemess->select();
+    $this->assign('provatemess',$data);
+    $this->display();
+
+ }
+
+
+ // 私信
+public function send() {
+    dump($_POST);
+    $formuser_id = session('id');//取得当前用户id
+    $name = $_POST['name'];  //获取接收人的名字
+    $content = $_POST['content'];//获取私信内容
+    if (empty($name) OR empty($content)) die("用户名或者消息内容不能为空");
+    $user = M('user');// 获取 user
+    $condition['name'] = $name;//获取查询内容
+    $touser_id = $user->where($condition)->getField('id');//查询user里面的name
+    if (!$touser_id) die('目标不存在');//查询的name不存在
+    if ($touser_id == $formuser_id) die('你不能给自己发送信息。');//不能给自己发信息
+    $data['content'] = $content;
+    $data['formuser_id'] = $formuser_id;
+    $data['touser_id'] = $touser_id;
+    $provatemess = M('provatemess');
+    $rs = $provatemess->add($data);
+  $this->success('发送成功','/index.php/home/user/myprivateLetter');
+   }
+
+   
+//获取个人私信
+  Public function gr(){
+   $provatemess = M('provatemess');
+   $content = $_POST['content'];//获取个人私信内容
+   $rs=$provatemess->where('touser_id=%d',session('id'))->select();
+     var_dump($rs);
+   }
+//获取图片         `       
+ public function tp(){
+$usermore=M('usermore');
+$rs=$usermore->select();
+dump($rs);
+ }
+
+}

@@ -1,16 +1,17 @@
 <include file="Public:head" />  
+
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-2">
                     <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
-                        <li><a href="/index.php/home/user/myLetter"><i class="fa fa-home fa-fw"></i>&nbsp;消息中心</a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-id-badge fa-fw"></i>&nbsp;回复我的</a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-superpowers fa-fw"></i>&nbsp;@ 我的</a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-user-o fa-fw"></i>&nbsp;收到的赞</a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-user-o fa-fw"></i>&nbsp;系统通知</a></li>
-                        <li  class="active"><a href="/index.php/home/user/myprivateLetter"><i class="fa fa-user-o fa-fw"></i>&nbsp;我的私信</a></li>
+                        <li ><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;消息中心</li>
+                        <li ><a href="javascript:void(0)"><i class="fa fa-circle" aria-hidden="true"></i></i>&nbsp;回复我的</a></li>
+                        <li ><a href="#"><i class="fa fa-circle" aria-hidden="true"></i></i>&nbsp;@ 我的</a></li>
+                        <li><a href="#"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;收到的赞</a></li>
+                        <li><a href="#"><i class="fa fa-circle" aria-hidden="true"></i></i>&nbsp;系统通知</a></li>
+                        <li class="active"><a href="/index.php/home/user/myprivateLetter"><i class="fa fa-envelope" aria-hidden="true"></i></i>&nbsp;我的私信</a></li>
                     </ul>
                 </div>
                 <div class="col-md-10">
@@ -20,14 +21,25 @@
                             </h3>
                         </div>
                         <div class="panel-body">
-
                             <div class='row'>
                                 <div class='col-md-3'>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading"><a  style="text-decoration:none" href="">近期消息</a></div>
+                          <div class="panel panel-default">
+                          <code>近期消息</code>
+                          <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#complete-dialog">发送私信<div class="ripple-container"></div></button>
+  
+
                                         <div class="panel-body">
                                             <div class='col-md-12'>
                                                  <img src="{$Think.session.img}" width=25 height=25 alt="头像" class="img-circle">
+                                            </div>
+                                             <div class='col-md-12'>
+                    <img src="/public/Uploads/2017-05-22/5922994d3853d.jpg"width=25 height=25 alt="头像" class="img-circle">
+                                            </div>
+                                             <div class='col-md-12'>
+                    <img src="/public/Uploads/2017-05-22/59229cf2203d8.JPG"width=25 height=25 alt="头像" class="img-circle">
+                                            </div>
+                                             <div class='col-md-12'>
+                    <img src="/public/Uploads/2017-05-22/5922a0cada6f9.JPG"width=25 height=25 alt="头像" class="img-circle">
                                             </div>
                                         </div>
                                       </div>
@@ -35,12 +47,16 @@
                                 <div class='col-md-9'>
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-
+                                        <div class='yy'>
+                                                <foreach name='provatemess' item="val">
+                                                {$val.content}<br>{$val.created_time}
+                                                    </foreach>
                                         </div>
-                                      </div>
                                 </div>
+                                     </div>
+                                </div>
+
                             </div>
-                          
           				</div>
                         </div>
                     </div>
@@ -48,8 +64,44 @@
             </div>
         </div>
     </div>
+</div>
+<div id="complete-dialog" class="modal fade in" tabindex="-1" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="tue">×</button>
+                <h4 class="modal-title">Dialog</h4>
+            </div>
+             <form  action="http://php.com/index.php/home/user/send"  method="post" >
+            <div class="modal-body">
+            <div class="row"> 
 
+            <div class='col-md-2'>
+                
+            </div>
+       
+                <div class='col-md-8'>
+                    
+                    <div class="form-group is-empty">
+                         <label for="inputEmail" class="col-md-2 control-label">姓名</label>
 
+                    <div class="col-md-10">
+                     <input type="" class="form-control" id="inputEmail" name="name" >
+                     </div>
+              </div>
+                </div>    
+            </div>  
+            </div>
+            <div class="modal-footer">  
+        
+                <input type="text" name="content" class="form-control" id=""  placeholder="内容">
+                <button type="text" class="btn btn-primary"  data-dismiss="">提交</button>
+            
+                
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 <script src="__JS__/jquery-2.2.3.min.js"></script>
@@ -60,7 +112,7 @@
 <script>
     $("#dropdown-menu select").dropdown();
 </script>
-<script>
-    $.material.init();
+   <script>
+      $.material.init();
 </script>
 </html>

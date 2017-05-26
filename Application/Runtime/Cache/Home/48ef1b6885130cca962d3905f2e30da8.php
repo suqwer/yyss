@@ -64,7 +64,7 @@
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="/index.php/home/user/mymsg">个人中心<i class="fa fa-user"></i></a></li>
-                        <li><a href="/index.php/home/user/myletter">私信中心</a></li>
+                        <li><a href="/index.php/home/user/myletter">我的私信</a></li>
                         <li><a href="javascript:void(0)">Something else here</a></li>
                         <li class="divider"></li>
                         <li><a href="/index.php/Home/user/logout" class="sli">注销<i class="fa fa-sign-out"></i></a></li>
@@ -86,35 +86,13 @@
             </div>
             <div class="bs-component">
                 <div class="jumbotron">
-                    <?php if(is_array($module)): foreach($module as $key=>$vo): ?><div class="row modulebg">
-                            <div class="col-md-12 bgmodule">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading"><span class="moduletext"><?php echo ($vo['name']); ?></span><a href="/index.php/home/module/modulebg?modulebg=<?php echo ($vo['id']); ?>">更多分版</a></div>
-                                    <div class="panel-body ">
+                    <h2>最近的消息</h2>
 
-                                            <div class="row">
-                                                <?php if(is_array($vo['modulelt'])): foreach($vo['modulelt'] as $key=>$vi): ?><div class="col-md-6">
-                                                    <div class="list-group">
-                                                        <div class="list-group-item">
-                                                            <div class="row-action-primary">
-                                                                <img class="mdi-action-settings" src="<?php echo ($vi['img']); ?>"></img>
-                                                            </div>
-                                                            <div class="row-content">
-                                                                <h4 class="list-group-item-heading mudule_lt"><?php echo ($vi['name']); ?></h4>
-                                                                    <a href="/index.php/home/module/modulelt?%ls=<?php echo ($vi['id']); ?>">进入版块</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div><?php endforeach; endif; ?>
-                                            </div>
+                    <p>社区大事件 新闻一类的东西</p>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div><?php endforeach; endif; ?>
+                    <p><a class="btn btn-primary btn-lg">了解更多</a></p>
                 </div>
-                <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
-            </div>
+                <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
         </div>
 
         <div class="col-md-12">
@@ -236,27 +214,5 @@
 </script>
 <script>
     $.material.init();
-</script>
-<script>
-    /*var moduleidarr={};
-    $.ajax({
-        url:'/index.php/home/module/moduleSelect',
-        type:'post',
-        success:function (msg) {
-            console.log(msg);
-            var mud=msg.length;
-
-            for(var i=1;i<mud;i++){
-                var s=$('.bgmodule')[0].cloneNode(true);
-                $('.modulebg').append(s);
-
-            }
-            var mudl=$('.bgmodule').length;
-            for(var s=0;s<mudl;s++){
-                $('.moduletext')[s].innerText=msg[s]['name'];
-                moduleidarr['id'+s]=msg[s]['id'];
-            }
-        }
-    });*/
 </script>
 </html>

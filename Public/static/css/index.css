@@ -26,6 +26,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfd8dc', end
    width: 100%;
       
 }
+#content{
+width:100px;
+height: 100px;
+border: 1px solid black; 
+
+}
 
 .cont_login {
   position: relative;
